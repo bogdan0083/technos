@@ -1,0 +1,125 @@
+/*
+Stylus variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon_home_width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon_home = x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet = width height image $spritesheet_sprites;
+*/
+$cart_name = 'cart';
+$cart_x = 0px;
+$cart_y = 59px;
+$cart_offset_x = 0px;
+$cart_offset_y = -59px;
+$cart_width = 23px;
+$cart_height = 23px;
+$cart_total_width = 145px;
+$cart_total_height = 113px;
+$cart_image = '../images/sprites/sprites.png';
+$cart = 0px 59px 0px -59px 23px 23px 145px 113px '../images/sprites/sprites.png' 'cart';
+$feature1_name = 'feature1';
+$feature1_x = 58px;
+$feature1_y = 0px;
+$feature1_offset_x = -58px;
+$feature1_offset_y = 0px;
+$feature1_width = 47px;
+$feature1_height = 49px;
+$feature1_total_width = 145px;
+$feature1_total_height = 113px;
+$feature1_image = '../images/sprites/sprites.png';
+$feature1 = 58px 0px -58px 0px 47px 49px 145px 113px '../images/sprites/sprites.png' 'feature1';
+$feature2_name = 'feature2';
+$feature2_x = 110px;
+$feature2_y = 0px;
+$feature2_offset_x = -110px;
+$feature2_offset_y = 0px;
+$feature2_width = 35px;
+$feature2_height = 52px;
+$feature2_total_width = 145px;
+$feature2_total_height = 113px;
+$feature2_image = '../images/sprites/sprites.png';
+$feature2 = 110px 0px -110px 0px 35px 52px 145px 113px '../images/sprites/sprites.png' 'feature2';
+$feature3_name = 'feature3';
+$feature3_x = 0px;
+$feature3_y = 0px;
+$feature3_offset_x = 0px;
+$feature3_offset_y = 0px;
+$feature3_width = 53px;
+$feature3_height = 54px;
+$feature3_total_width = 145px;
+$feature3_total_height = 113px;
+$feature3_image = '../images/sprites/sprites.png';
+$feature3 = 0px 0px 0px 0px 53px 54px 145px 113px '../images/sprites/sprites.png' 'feature3';
+$marker_name = 'marker';
+$marker_x = 0px;
+$marker_y = 87px;
+$marker_offset_x = 0px;
+$marker_offset_y = -87px;
+$marker_width = 18px;
+$marker_height = 26px;
+$marker_total_width = 145px;
+$marker_total_height = 113px;
+$marker_image = '../images/sprites/sprites.png';
+$marker = 0px 87px 0px -87px 18px 26px 145px 113px '../images/sprites/sprites.png' 'marker';
+$spritesheet_width = 145px;
+$spritesheet_height = 113px;
+$spritesheet_image = '../images/sprites/sprites.png';
+$spritesheet_sprites = $cart $feature1 $feature2 $feature3 $marker;
+$spritesheet = 145px 113px '../images/sprites/sprites.png' $spritesheet_sprites;
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  spriteWidth($icon_home)
+}
+
+.icon-email {
+  sprite($icon_email)
+}
+*/
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of Stylus
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+sprites($spritesheet_sprites);
+*/
+sprites($sprites) {
+  for $sprite in $sprites {
+    $sprite_name = $sprite[9];
+    .{$sprite_name} {
+      sprite($sprite);
+    }
+  }
+}

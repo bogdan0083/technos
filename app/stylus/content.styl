@@ -1,0 +1,24 @@
+
+// FEATURE
+
+.feature
+	position: relative
+	padding 10px 0 10px 72px
+	font-size: 1.1rem
+	+above($screen-sm)
+		text-align: center
+		padding: 0
+		max-width: 210px
+		margin: 0 auto
+	.icon
+		position: absolute
+		left 0
+		top 50%
+		transform translateY(-50%)
+		+above($screen-sm)
+			position: relative
+			top auto
+			left 0
+			transform none
+			display: block
+			margin: 0 auto

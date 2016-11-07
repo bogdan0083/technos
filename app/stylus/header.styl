@@ -1,8 +1,8 @@
 .header
 	width: 100%
-	margin-top: 10px
-	padding-top: 10px
+	padding-top: 20px
 	margin-bottom: 40px
+	color white
 	.nav-trigger-wrap
 		margin-top: 2px
 	&-aside
@@ -63,13 +63,13 @@
 		width: 230px
 		vertical-align: middle
 		margin: 0
-
 		.icon
 			display: inline-block
 			position: absolute
 			left 0
 			top 50%
 			margin-top: -13px
+
 	+above($screen-md)
 		width: auto
 		&-secondary
@@ -78,6 +78,10 @@
 .cart-block
 	text-transform: uppercase
 	margin-top: 10px
+	&:hover
+		.cart-block-count
+			background-color: white
+			color $dark-blue
 	+above($screen-sm)
 		margin-top: 14px
 		display: inline-block
@@ -99,7 +103,6 @@
 		font-size: 0.9rem
 	.icon
 		margin-right: 4%
-
 	.cart-block-link
 		text-decoration: none
 	.cart-block-checkout
@@ -130,90 +133,6 @@
 			left 34px
 			top 4px
 
-.categories-nav
-	overflow: hidden
-	+above($screen-sm)
-		overflow: visible
-		position: absolute
-		left 0
-		top 55%
-		transform translateY(-100%)
-		width: 100%
-.categories-nav-item
-	height: 116px
-	vertical-align: middle
-	background-color: $dark-blue
-	display: table
-	width: 100%
-	text-decoration: none
-	transition all 0.3s
-	text-align: center
-	margin 20px 0
-	padding 10px 20px
-	&:hover
-		background-color: white
-		color $dark-blue
-		h2
-			font-weight: 500
-	.btn, .label-mark
-		display: none
-	&:hover
-		text-decoration: underline
-	h2
-		text-decoration: none
-		display: table-cell
-		vertical-align: middle
-		font-weight: 400
-		text-transform: uppercase
-		font-size 1.231rem
-		line-height: 1.5
-		position: relative
-		z-index: 10
-	+above($screen-sm)
-		background-color: transparent
-		text-align: left
-		padding 10px 0
-		height: 142px
-		border-top 1px solid white
-		border-bottom 1px solid white
-		position: relative
-		h2
-			display: table-cell
-			vertical-align: middle
-		.label-mark
-			position: absolute
-			bg('../images/label.png')
-			right 0
-			bottom 5px
-			display: table
-			text-align: center
-			span
-				font-weight: 700
-				color black
-				text-transform: uppercase
-				transform rotate(-13deg)
-				display: table-cell
-				font-size: 1.2rem
-				vertical-align: middle
-		.btn
-			display: inline-block
-			position: absolute
-			left 0
-			bottom 20px
-			transition all 0.3s
-			opacity: 0
-		&:hover
-			background-color: transparent
-			color white
-			text-decoration: none
-			padding-bottom: 70px
-			padding-top: 30px
-			//transform translateY(-30px)
-			.btn
-				opacity: 1
-			h2
-				text-decoration: none
-
 .header-nav
 	margin-bottom: -6px
 	ul
@@ -228,7 +147,7 @@
 			display: inline-block
 		li
 			display: inline-block
-		a
+		a, span
 			text-decoration: none
 			text-transform: uppercase
 			font-weight: 700
@@ -239,10 +158,6 @@
 			font-size: 0.9rem
 			+above($screen-md)
 				font-size: 1rem
-			&:hover
-				&:before, &:after
-					opacity: 1
-					transform none
 			&:before, &:after
 				content ''
 				width: 28px
@@ -259,3 +174,8 @@
 				top auto
 				bottom 0
 				transform translateX(100%)
+		a:hover, span
+			&:before, &:after
+				opacity: 1
+				transform none
+

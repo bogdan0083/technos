@@ -1,5 +1,6 @@
 .footer
 	padding-bottom: 15px
+	color white
 	&-topline
 		line-height: 1.5
 		.about-text
@@ -22,6 +23,8 @@
 			+above($screen-sm)
 				display: inline
 	.made-by
+		.i-cherry
+			margin-right: 6px
 		a
 			text-decoration: none
 			display: block
@@ -35,3 +38,46 @@
 		left 0
 		bottom 0
 		width: 100%
+
+.footer-inner
+	position: absolute
+	left 0
+	bottom 0
+	height: 75px
+	background-color: $dark-blue
+	width: 100%
+	padding-top: 12px
+	.footer-bottom
+		width: 100%
+	.footer-bottom-left, .footer-bottom-right
+		float: none
+		display: inline-block
+	.footer-bottom
+		text-align: justify
+		margin-bottom: -10px
+		&:after
+			content ''
+			width: 100%
+			display: inline-block
+		> div
+			vertical-align: middle
+			display: inline-block
+			text-align: left
+			margin-bottom: -20px
+	.made-by
+		text-align: right
+		a
+			display: block
+			font-weight: 700
+	.copyright
+		a
+			display: block
+			text-decoration: none
+			text-transform: uppercase
+			font-size: 1.3rem
+			margin-bottom: -2px
+	.address-block
+		display: none !important
+		margin-left: 0
+		+above($screen-sm)
+			display: inline-block

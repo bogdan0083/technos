@@ -1,102 +1,129 @@
 html
-    box-sizing border-box
-    font-size: 12px
-    position: relative
-    min-height 100%
-    +above($screen-sm)
-        font-size: 13px
-*, *:before, *:after
-    box-sizing inherit
+	box-sizing border-box
+	font-size: 12px
+	position: relative
+	min-height 100%
+	+above($screen-sm)
+		font-size: 13px
 
+*, *:before, *:after
+	box-sizing inherit
 
 generateClasses($spritesheet_sprites)
 
 body
-    color black
-    font-size 1rem
-    font-family 'Helvetica Neue Cyr', sans-serif
-    font-weight 400
-    min-height: 570px
+	font-size 1rem
+	font-family 'Helvetica Neue Cyr', sans-serif
+	font-weight 400
+	min-height: 570px
+	color $dark-blue
+	background: white
+	margin-bottom: 75px
 a
-    text-decoration underline
-    color inherit
-    transition all 0.3s
-    &:hover
-        color white
-        text-decoration none
+	text-decoration underline
+	color inherit
+	transition all 0.3s
+	&:hover
+		text-decoration none
 
 .icon
-    display inline-block
-    vertical-align middle
-    position relative
-    background-color: transparent
-    padding: 0
-    border none
-    &:before
-        content ''
-        position absolute
-        top 0
-        left 0
-        width 100%
-        height 100%
-        display block
-        opacity: 0
-        transition all 0.3s
-    &:after
-        content ''
-        top 0
-        left 0
-        position: absolute
-        opacity: 1
-        transition all 0.3s
-    + span
-        display inline-block
-        vertical-align middle
+	display inline-block
+	vertical-align middle
+	position relative
+	background-color: transparent
+	padding: 0
+	border none
+	&:before
+		content ''
+		position absolute
+		top 0
+		left 0
+		width 100%
+		height 100%
+		display block
+		opacity: 0
+		transition all 0.3s
+	&:after
+		content ''
+		top 0
+		left 0
+		position: absolute
+		opacity: 1
+		transition all 0.3s
+	+ span
+		display inline-block
+		vertical-align middle
 
 img
-    max-width 100%
+	max-width 100%
 
 .nav-trigger-wrap
-    text-align: center
-    float: right
-    +above($screen-sm)
-        display: none
+	text-align: center
+	float: right
+	+above($screen-sm)
+		display: none
 
 .nav-trigger
-    margin: 0 auto
-    hamburger-generator()
-    text-align center
-    margin-top 15px
-    position relative
-    z-index 10
-    &.active
-        hamburger-animation()
-    +above(880px)
-        display none
+	margin: 0 auto
+	hamburger-generator()
+	text-align center
+	margin-top 15px
+	position relative
+	z-index 10
+	&.active
+		hamburger-animation()
+	+above(880px)
+		display none
 
 .page-wrapper
-    transition all 0.3s
-    &.active
-        transform translateX(-200px)
+	transition all 0.3s
+	&.active
+		transform translateX(-200px)
 
 .colored-white
-    color white
+	color white
 
 .container
-    margin: 0 auto
+	margin: 0 auto
 
 .btn
-    display: inline-block
-    border 1px solid white
-    height: 40px
-    line-height: 38px
-    padding 0 20px
-    text-decoration: none
-    background-color: transparent
-    transition all 0.3s
-    &:hover
-        background-color: #fff
-        color $dark-blue
+	display: inline-block
+	border 1px solid #8585a3
+	color $dark-blue
+	height: 40px
+	line-height: 38px
+	padding 0 20px
+	text-decoration: none
+	background-color: transparent
+	transition all 0.3s
+	text-transform: uppercase
+	&:hover
+		background-color: #e4e3f5
+		color #213452
+	&-transparent
+		background-color: rgba(white, 0.7)
+	&-cart
+		padding-right: 50px
+		text-transform: uppercase
+		position: relative
+		&:before
+			sprite($cart_blue)
+			content ''
+			position: absolute
+			right 15px
+			top 50%
+			margin-top: -10px
+
+.index-page
+	margin-bottom: 0
+
+.index-page .btn
+	color white
+	border-color white
+	&:hover
+		background-color: #fff
+		color $dark-blue
+
 //.custom-select
 //    position relative
 //    height 34px
@@ -123,65 +150,86 @@ img
 //}
 
 .mobile-menu
-    background-color white
-    color black
-    width 200px
-    padding 20px
-    position fixed
-    right 0
-    top 0
-    min-height 100%
-    overflow auto
-    transition transform 0.3s
-    transform translateX(100%)
-    &.active
-        transform translateX(0)
-    +above(880px)
-        display none
-    a, span
-        font-weight 700
-        text-transform uppercase
-        text-decoration none
-        display block
-        margin 10px 0
-        font-size 1.3rem
-        &:first-child
-            margin-top 0
-    span
-        color white
-
+	background-color white
+	color black
+	width 200px
+	padding 20px
+	position fixed
+	right 0
+	top 0
+	min-height 100%
+	overflow auto
+	transition transform 0.3s
+	transform translateX(100%)
+	&.active
+		transform translateX(0)
+	+above(880px)
+		display none
+	a, span
+		font-weight 700
+		text-transform uppercase
+		text-decoration none
+		display block
+		margin 10px 0
+		font-size 1.3rem
+		&:first-child
+			margin-top 0
+	span
+		color white
 
 .field
-    height: 40px
-    display: block
-    width: 100%
-    padding-left: 20px
-    padding-right: 20px
-    margin: 0 auto
-    background-color: #fdfcfc
-    border: 1px solid #dfdfdf
-    &-text
-        resize none
-        height: 100px
-        padding-top: 10px
-    &:focus
-        border-color: gray
-        outline none
+	height: 40px
+	display: block
+	width: 100%
+	padding-left: 20px
+	padding-right: 20px
+	background-color: rgba(white, 0.7)
+	border: 1px solid #8b8ba6
+	margin 10px 0
+	&-text
+		resize none
+		height: 100px
+		padding-top: 10px
+	&:focus
+		border-color: gray
+		outline none
 
 .fadeInUp
-    animation fadeInUp
+	animation fadeInUp
 
 .animated
-    animation-fill-mode both
+	animation-fill-mode both
 
 .fp-background
-    background url("../images/main-bg.jpg") no-repeat center / cover
-    position: fixed
-    left 0
-    top 0
-    width: 100%
-    height: 100%
-    z-index: -100
-    
+	background url("../images/main-bg.jpg") no-repeat center / cover
+	position: fixed
+	left 0
+	top 0
+	width: 100%
+	height: 100%
+	z-index: -100
+
 address
-    font-style: normal
+	font-style: normal
+
+.heading
+	font-size 1.2rem
+	text-align: center
+	text-transform: uppercase
+	padding 15px 0
+	position: relative
+	&:before, &:after
+		content ''
+		width: 230px
+		height: 1px
+		background-color: $dark-blue
+		position: absolute
+		left 50%
+		top 0
+		margin-left: -115px
+		transition all 0.3s
+	&:after
+		top auto
+		bottom 0
+	+above($screen-sm)
+		font-size 1.846rem

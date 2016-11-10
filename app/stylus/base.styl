@@ -113,6 +113,25 @@ img
 			right 15px
 			top 50%
 			margin-top: -10px
+	&-submit
+		width: 116px
+		margin: 0 auto
+		display: block
+		text-transform: uppercase
+		font-weight: 700
+		line-height: 40px
+	&-blue
+		color #e4e3f5
+		background-color: $dark-blue
+		&.btn-cart
+			&:hover
+				&:before
+					background-image: url(../images/icons/cart-blue.png)
+			&:before
+				background: url(../images/icons/cart-secondary.png) no-repeat center
+				width: 20px
+				height: 20px
+				right 10px
 
 .index-page
 	margin-bottom: 0
@@ -186,10 +205,23 @@ img
 	background-color: rgba(white, 0.7)
 	border: 1px solid #8b8ba6
 	margin 10px 0
+	&::placeholder
+		color #213452
 	&-text
 		resize none
 		height: 100px
 		padding-top: 10px
+	&-user
+		background: url(../images/icons/user.png) no-repeat right 10px center
+	&-phone
+		background: url(../images/icons/phone.png) no-repeat right 10px center
+	&-address
+		background: url(../images/icons/marker-pixel.png) no-repeat right 12px center
+	&-mail
+		background: url(../images/icons/mail.png) no-repeat right 10px center
+	&-text
+		padding-top: 13px
+		background: url(../images/icons/paper-plane.png) no-repeat right 10px top 12px
 	&:focus
 		border-color: gray
 		outline none
@@ -216,7 +248,9 @@ address
 	font-size 1.2rem
 	text-align: center
 	text-transform: uppercase
+	line-height: 1.5
 	padding 15px 0
+	margin-bottom: 30px
 	position: relative
 	&:before, &:after
 		content ''
@@ -233,3 +267,162 @@ address
 		bottom 0
 	+above($screen-sm)
 		font-size 1.846rem
+
+
+.amount-input
+	width 100px
+	height 26px
+	text-align center
+	position relative
+	margin: 0 auto
+	&-sub, &-add
+		height 100%
+		width 26px
+		top 0
+		left 0
+		border 1px solid #d3d6dc
+		position absolute
+		background: white url("../images/icons/arr-pixel-left.png") no-repeat center
+		transition all 0.3s
+		&:hover
+			background-color: #e4e3f5
+	&-add
+		left auto
+		right 0
+		background: white url("../images/icons/arr-pixel-right.png") no-repeat center
+	.field
+		width 100%
+		height 26px
+		text-align center
+		border-color #d3d6dc
+		padding 0
+		margin: 0
+
+.col-inline
+	display: inline-block
+	vertical-align: middle
+	margin-right: -2px
+
+.ruble
+	font-family: 'PT Sans', sans-serif
+	font-style: normal
+
+.price
+	text-align: center
+
+.order-table
+	.order-link
+		margin-bottom: 15px
+		font-weight: 700
+		text-decoration: none
+	.order-item-text
+		line-height: 1.5
+		margin-bottom: 20px
+	.price
+		font-size: 1.2rem
+		font-weight: 400
+	.order-img
+		display: block
+		text-align: center
+	tbody
+		tr
+			border-bottom: 1px solid #e4e5e9
+			height: 185px
+			margin-bottom: 30px
+	th
+		text-align: center
+		text-transform: uppercase
+		padding-bottom: 10px
+		font-size 1.385rem
+		&:first-child
+			text-align: left
+			padding-left: 10px
+
+	+between(0, $screen-sm)
+		thead
+			display: none
+		table, tbody, tr, td
+			display: block
+		tbody tr
+			clearfix()
+			margin-bottom: 40px
+			border none
+			height auto
+		td
+			padding: 0
+			float: left
+		.order-img
+			border 1px solid #e9eaed
+			width: 100%
+			text-align: center
+			padding 20px
+			margin-bottom: 20px
+			display: inline-block
+		.price
+			margin-top: 5px
+			text-align: center
+		.remove
+			margin-top: 6px
+	+above($screen-sm)
+		.col-inline, td
+			display: table-cell
+			padding: 0
+			float: none
+
+.no-price
+	font-size 1.846rem
+	text-align: center
+
+// DELIVERY
+
+.delivery
+	margin-top: 70px
+	.heading
+		margin-bottom: 30px
+	.btn-submit
+		margin-top: 30px
+
+.order-delivery
+	margin-bottom: 30px
+	+above($screen-sm)
+		margin-bottom: 0
+
+.tab-pane
+	padding 0 10px
+	border-radius 3px
+	margin-right: 5px
+	border-color: #d5d8de
+	margin-bottom: 20px
+	font-weight: 700
+	&.active
+		box-shadow 1px 0 10px 0 rgba(black, 0.2)
+		background: #e4e3f5
+	&:last-of-type
+		margin-right: 0
+	+above($screen-sm)
+		padding 0 12px
+		margin-right: 12px
+		&:last-of-type
+			margin-right: 0
+.delivery-type-caption
+	text-transform: uppercase
+	line-height: 1.5
+	margin-top 0
+	margin-bottom: 20px
+
+.tab-content
+	display: none
+	&.active
+		display: block
+
+.field-row
+	margin-left: -5px
+	margin-right: -5px
+	.field
+		margin: 0
+	> div
+		padding-left: 5px
+		padding-right: 5px
+
+.heading-main
+	margin-bottom: 40px

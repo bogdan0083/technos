@@ -30,7 +30,21 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="feya">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="konfirmat-test">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="mb">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

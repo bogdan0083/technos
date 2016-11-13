@@ -25,6 +25,22 @@ $(document).ready(function () {
 
     });
 
+    // Дропдаун меню в категориях
+
+    $('.category-list > li > a').click(function (e) {
+
+        if ($(this).next('ul').length) {
+
+            e.preventDefault();
+
+            $(this).toggleClass('active');
+            $(this).parent().toggleClass('active');
+
+            $(this).next().toggleClass('active');
+        }
+
+    });
+
     // триггер каталога на мобильных
 
     $('.js-aside-nav-trigger').click(function (e) {
@@ -51,10 +67,21 @@ $(document).ready(function () {
         ]
     });
 
+
+    // Слайдер отзывов
+
     $('.reviews-slider .wrapper').slick({
         autoplay: true,
         prevArrow: $('.reviews-slider .arrow-left'),
         nextArrow: $('.reviews-slider .arrow-right')
+    });
+
+
+    // Слайдер отзывов (внутренний
+
+    $('.reviews-slider-inner .wrapper').slick({
+        prevArrow: $('.reviews-slider-inner .square-arrow-left'),
+        nextArrow: $('.reviews-slider-inner .square-arrow-right')
     });
 
     // слайдер товара
@@ -67,7 +94,7 @@ $(document).ready(function () {
     });
 
 
-    $('.full-item-preview-slider').on('beforeChange', function(e, slick, cur, next) {
+    $('.full-item-preview-slider').on('beforeChange', function (e, slick, cur, next) {
 
         $('.thumbnails-slider')
             .find('.slide')
@@ -76,7 +103,6 @@ $(document).ready(function () {
             .addClass('slick-current');
 
     });
-
 
 
     // миниатюры в товаре.
@@ -130,7 +156,7 @@ $(document).ready(function () {
     });
 
     $('.fancybox').fancybox();
-    
+
     initTabs();
 
     // Простая реализация табов
@@ -158,7 +184,6 @@ $(document).ready(function () {
             $tabContents = $('[data-tabgroup="' + tabgroup + '"]'),
 
 
-
             href = $clickedPane.data('href'),
 
         // нужное содержимое таба
@@ -174,4 +199,37 @@ $(document).ready(function () {
 
         $targetTabContent.addClass('active');
     }
+
+    // Кастомный file input
+
+    ( function( $, window, document, undefined )
+    {
+        $( '.inputfile' ).each( function()
+        {
+            var $input	 = $( this ),
+                $label	 = $input.next( 'label' ),
+                labelVal = $label.html();
+
+            $input.on( 'change', function( e )
+            {
+                var fileName = '';
+
+                if( this.files && this.files.length > 1 )
+                    fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+                else if( e.target.value )
+                    fileName = e.target.value.split( '\\' ).pop();
+
+                if( fileName )
+                    $('.js-file-path').html( fileName );
+                else
+                    $label.html( labelVal );
+            });
+
+            // Firefox bug fix
+            $input
+                .on( 'focus', function(){ $input.addClass( 'has-focus' ); })
+                .on( 'blur', function(){ $input.removeClass( 'has-focus' ); });
+        });
+    })( jQuery, window, document );
+
 });
